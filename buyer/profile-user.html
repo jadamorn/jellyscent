@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Jellyscent</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="profile-user.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+       
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar - Replaced with index.html header -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="logo">
+                <img src="../images/logo.png" alt="JELLYSCENT logo showing a perfume bottle icon">
+                
+            </div>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../all-scents.html">All Scents</a></li>
+                <li><a href="../bestselling.html">Best Selling</a></li>
+                <li><a href="../about.html">About</a></li>
+                
+            </ul>
+        </div>
+        <div class="user-icon">
+            <a href="login.html">
+                <i class="fas fa-user"></i>
+            </a>
+        </div>
+        <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Profile Container -->
+    <div class="profile-container">
+        <!-- Sidebar -->
+        <div class="profile-sidebar">
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="profile-username"></div>
+                
+            </div>
+
+            <div class="sidebar-menu">
+                <div class="menu-section">
+                    <div class="menu-section-title">
+                        <i class="fas fa-user"></i>
+                        My Account
+                    </div>
+                    <ul class="menu-items">
+                        <li><a href="#" class="menu-link active" data-section="profile">Profile</a></li>
+                        
+                    </ul>
+                </div>
+                <div class="menu-section">
+                    <div class="menu-section-title">
+                        <i class="fas fa-shopping-bag"></i>
+                        Shopping
+                    </div>
+                    <ul class="menu-items">
+                        <li>
+                            <a href="order.html" class="menu-link">
+                                <i class="fas fa-box"></i>
+                                My Orders
+                            </a>
+                        </li>
+                        <li>
+                            <a href="cart.html" class="menu-link">
+                                <i class="fas fa-shopping-cart"></i>
+                                My Cart
+                                <span class="cart-count">0</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="menu-section">
+                    <ul class="menu-items">
+                        <li>
+                            <a href="#" class="menu-link logout-btn" id="logoutBtn">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="profile-main">
+            <!-- Profile Section -->
+            <div id="profile-section" class="content-section active">
+                <h1 class="profile-title">My Profile</h1>
+                <p class="profile-subtitle">Manage and protect your account</p>
+
+                <form class="profile-form">
+                    <div class="form-left">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" placeholder="Enter username">
+                            <div class="form-note">Username can only be changed once.</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="first_name">First Name</label>
+                            <input type="text" id="first_name" placeholder="Enter your first name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="last_name">Last Name</label>
+                            <input type="text" id="last_name" placeholder="Enter your last name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="Enter your email address">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" placeholder="Enter your phone number">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Gender</label>
+                            <div class="gender-options">
+                                <div class="gender-option">
+                                    <input type="radio" id="male" name="gender" value="male">
+                                    <label for="male">Male</label>
+                                </div>
+                                <div class="gender-option">
+                                    <input type="radio" id="female" name="gender" value="female">
+                                    <label for="female">Female</label>
+                                </div>
+                                <div class="gender-option">
+                                    <input type="radio" id="other" name="gender" value="other">
+                                    <label for="other">Other</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Date of birth</label>
+                            <div class="date-inputs">
+                                <select id="birth-date">
+                                    <option value="">Date</option>
+                                </select>
+                                <select id="birth-month">
+                                    <option value="">Month</option>
+                                </select>
+                                <select id="birth-year">
+                                    <option value="">Year</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="save-btn">Save</button>
+                    </div>
+
+                    <div class="form-right">
+                        <div class="profile-image-section">
+                            <div class="profile-image-preview">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <button type="button" class="select-image-btn">Select Image</button>
+                            <div class="image-requirements">
+                                File size: maximum 1 MB<br>
+                                File extension: .JPEG, .PNG
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Addresses Section -->
+            <div id="addresses-section" class="content-section address-section">
+                <h1 class="profile-title">My Addresses</h1>
+                <p class="profile-subtitle">Manage your delivery addresses</p>
+
+                <form class="address-form">
+                    <div class="form-group full-width">
+                        <label for="address-label">Address Label</label>
+                        <input type="text" id="address-label" placeholder="e.g., Home, Office, etc.">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="first-name">First Name</label>
+                        <input type="text" id="first-name" placeholder="Enter your first name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="last-name">Last Name</label>
+                        <input type="text" id="last-name" placeholder="Enter your last name">
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="complete-address">Complete Address</label>
+                        <textarea id="complete-address" rows="3" placeholder="House number, street name, subdivision, etc."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="barangay">Barangay</label>
+                        <input type="text" id="barangay" placeholder="Enter barangay">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" placeholder="Enter city">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="zip-code">Zip Code</label>
+                        <input type="text" id="zip-code" placeholder="Enter zip code">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="region">Region</label>
+                        <input type="text" id="region" placeholder="Enter region">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="country">Country</label>
+                        <select id="country">
+                            <option value="">Select Country</option>
+                            <option value="Philippines">Philippines</option>
+                            <option value="USA">United States</option>
+                            <option value="Canada">Canada</option>
+                            <!-- ... existing code ... -->
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mobile-number">Mobile Number</label>
+                        <input type="tel" id="mobile-number" placeholder="Enter mobile number">
+                    </div>
+
+                    <div class="form-group full-width">
+                        <button type="submit" class="save-btn">Save Address</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer - Replaced with index.html footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="about-section">
+                <h3>About us</h3>
+                <p>At Jellyscent, we blend Radiant Blooms with 
+                    Captivating Scents to create perfumes that feel luxurious yet 
+                    remain affordable. Inspired by nature's beauty, our fragrances bring elegance to your everyday.</p>
+            </div>
+            <div class="info-section">
+                <h3>Info</h3>
+                <ul>
+                    <li><a href="info.html#faqs">FAQs</a></li>
+                    <li><a href="info.html#about">About Us</a></li>
+                    <li><a href="info.html#contact">Contact Us</a></li>
+                    <li><a href="info.html#terms">Terms and Condition</a></li>
+                    <li><a href="info.html#service">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="subscribe">
+                <p>Subscribe to our emails</p>
+                <div class="email-input">
+                    <input type="email" placeholder="Email">
+                </div>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="profile-user.js"></script>
+    <script src="logout.js"></script>
+</body>
+</html>

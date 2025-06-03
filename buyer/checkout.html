@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checkout - Jellyscent</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="checkout.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    .checkout-products-list-item img {
+  width: 50px;   /* Adjust the size as needed */
+  height: 50px;  /* Keep it proportional */
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+  margin-right: 10px; /* Space between image and text */
+}
+  </style>
+</head>
+<body>
+  <form class="checkout-container" id="checkout-form">
+    <div class="checkout-left">
+      <div class="checkout-section-title">Delivery</div>
+      <div class="checkout-form">
+        <label for="customer-email">Email Address</label>
+        <input type="email" id="customer-email" name="email" placeholder="Email Address" required />
+
+        <label for="country">Country/Region</label>
+        <select id="country" required>
+          <option>Philippines</option>
+        </select>
+
+        <div style="display: flex; gap: 12px;">
+          <div style="flex:1;">
+            <label for="first-name">First name</label>
+            <input type="text" id="first-name" name="firstName" placeholder="First name" required />
+          </div>
+          <div style="flex:1;">
+            <label for="last-name">Last name</label>
+            <input type="text" id="last-name" name="lastName" placeholder="Last name" required />
+          </div>
+        </div>
+
+        <label for="complete-address">Complete Address</label>
+        <input type="text" id="complete-address" name="address" placeholder="Complete Address" required />
+
+        <label for="barangay">Barangay</label>
+        <input type="text" id="barangay" name="barangay" placeholder="Barangay" required />
+
+        <div style="display: flex; gap: 12px;">
+          <div style="flex:1;">
+            <label for="zip-code">Zip Code</label>
+            <input type="text" id="zip-code" name="zipCode" placeholder="0000" required />
+          </div>
+          <div style="flex:1;">
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" placeholder="City" required />
+          </div>
+        </div>
+
+        <label for="region">Region</label>
+        <input type="text" id="region" name="region" placeholder="Region" required />
+
+        <label for="mobile-number">Mobile Number</label>
+        <input type="text" id="mobile-number" name="mobile" placeholder="Mobile Number" required />
+
+        <div class="checkout-section-title" style="margin-top:40px;">Payment Method</div>
+        <div class="payment-methods">
+          <div class="payment-card selected" data-method="GCash" id="gcash">
+            <img
+              src="../images/gc.png"
+              alt="GCash"
+              style="height:32px; vertical-align:middle; margin-right:12px;"
+            />
+            GCash
+          </div>
+          <div class="payment-card" data-method="PayMaya" id="paymaya">
+            <img
+              src="../images/py.png"
+              alt="PayMaya"
+              style="height:32px; vertical-align:middle; margin-right:12px;"
+            />
+            PayMaya
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="checkout-right">
+      <div class="checkout-summary">
+        <h3>Order Summary</h3>
+        <div id="checkout-products-list"></div>
+        <div class="summary-item">
+          <span>Subtotal</span>
+          <span id="checkout-subtotal">₱0.00</span>
+        </div>
+        <div class="summary-item">
+          <span>Shipping</span>
+          <span id="checkout-shipping-fee">₱50.00</span>
+        </div>
+        <div class="summary-item summary-total">
+          <span>Total</span>
+          <span id="checkout-total">₱0.00</span>
+        </div>
+      </div>
+      <button type="submit" class="checkout-pay-btn blue-btn" id="pay-now-btn">PAY NOW</button>
+    </div>
+  </form>
+
+  <script src="checkout.js"></script>
+</body>
+</html>

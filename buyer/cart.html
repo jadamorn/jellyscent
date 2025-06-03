@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JELLYSCENT - Shopping Cart</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="logo">
+                <img src="../images/logo.png" alt="JELLYSCENT logo showing a perfume bottle icon">
+            </div>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../all-scents.html">All Scents</a></li>
+                <li><a href="../bestselling.html">Best Selling</a></li>
+                <li><a href="index.html#about-us">About</a></li>
+            </ul>
+        </div>
+        <div class="user-icon">
+            <a href="../login.html">
+                <i class="fas fa-user"></i>
+            </a>
+        </div>
+        <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Cart Section -->
+    <section class="cart-section">
+        <div class="cart-container">
+            <div class="cart-header">
+                <h2>My Cart</h2>
+                
+            </div>
+
+            <div class="cart-content">
+                <div class="select-all-container">
+                    <input type="checkbox" id="select-all">
+                    <label for="select-all" class="select-all-label">Select All</label>
+                </div>
+
+                <table class="cart-table">
+                    <thead>
+                        <tr>
+                            <th class="checkbox-column"></th>
+                            <th>No.</th>
+                            <th>Product Name</th>
+                            <th>Size</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-items">
+                        <!-- Cart items will be dynamically added here -->
+                    </tbody>
+                </table>
+
+                <div class="cart-total">
+                    <p>TOTAL: <span id="total-price">0</span> pesos</p>
+                </div>
+
+                <div class="cart-actions">
+                    <div class="left-actions">
+                        <button class="checkout-btn" id="proceed-checkout-btn" onclick="window.location.href='checkout.html'">CHECKOUT</button>
+
+                    </div>
+                    <div class="right-actions">
+                        <button class="close-btn" onclick="window.location.href='profile-user.html'">CLOSE</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="about-section">
+                <h3>About us</h3>
+                <p>At Jellyscent, we blend Radiant Blooms with Captivating Scents to create perfumes that feel luxurious yet remain affordable. Inspired by nature's beauty, our fragrances bring elegance to your everyday.</p>
+            </div>
+            <div class="info-section">
+                <h3>Info</h3>
+                <ul>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Terms and Condition</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="subscribe">
+                <p>Subscribe to our emails</p>
+                <div class="email-input">
+                    <input type="email" placeholder="Email">
+                </div>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="cart.js"></script>
+</body>
+</html>
