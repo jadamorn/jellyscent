@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inventory Management - Jellyscent Admin</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,500,600,700&family=Poppins:300,400,500&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        .inventory-overview {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .inventory-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .inventory-card h3 {
+            margin: 0;
+            color: #666;
+            font-size: 0.9em;
+        }
+        .inventory-card .value {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .inventory-list {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .inventory-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+        .inventory-item:hover {
+            background: #f8f9fa;
+            transform: translateX(5px);
+        }
+        .product-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .product-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            object-fit: cover;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .variant-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .variant-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 8px 15px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            margin: 5px 0;
+        }
+        .variant-size {
+            font-weight: 600;
+            color: #333;
+            min-width: 60px;
+        }
+        .variant-price {
+            color: #28a745;
+            font-weight: 500;
+        }
+        .variant-quantity {
+            color: #666;
+            font-weight: 500;
+        }
+        .stock-status {
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+        .status-low {
+            background: #fff3cd;
+            color: #856404;
+        }
+        .status-ok {
+            background: #d4edda;
+            color: #155724;
+        }
+        .status-out {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-primary {
+            background: #007bff;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #0056b3;
+        }
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+        }
+        .btn-danger:hover {
+            background: #c82333;
+        }
+        .search-bar {
+            margin-bottom: 20px;
+        }
+        .search-bar input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+        .search-bar input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+            outline: none;
+        }
+        .stock-input {
+            width: 80px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-align: center;
+            font-weight: 500;
+        }
+        .stock-input:focus {
+            border-color: #28a745;
+            box-shadow: 0 0 0 2px rgba(40,167,69,0.25);
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo"><i class="fa fa-bag-shopping"></i> Jellyscent</div>
+        <ul>
+            <li><a href="dashboard.html"><i class="fa fa-chart-line"></i> Dashboard</a></li>
+            <li><a href="products.html"><i class="fa fa-box"></i> Products</a></li>
+            <li><a href="orders.html"><i class="fa fa-shopping-cart"></i> Orders</a></li>
+           
+            <li class="active"><a href="inventory.html"><i class="fa fa-warehouse"></i> Inventory</a></li>
+           
+        </ul>
+    </div>
+    <div class="header">
+        <div class="title">Inventory Management</div>
+        <div class="user-area">
+            <div class="profile-dropdown">
+                <img src="https://i.pravatar.cc/100?img=3" alt="Admin" class="profile-img">
+                <span>Admin</span>
+                <div class="dropdown-content">
+                    <a href="#" onclick="signOut()">Sign Out</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="inventory-overview">
+            <div class="inventory-card">
+                <h3>Total Products</h3>
+                <div class="value">156</div>
+            </div>
+            <div class="inventory-card">
+                <h3>Low Stock Items</h3>
+                <div class="value">12</div>
+            </div>
+            <div class="inventory-card">
+                <h3>Out of Stock</h3>
+                <div class="value">5</div>
+            </div>
+            <div class="inventory-card">
+                <h3>Total Value</h3>
+                <div class="value">$45,678</div>
+            </div>
+        </div>
+
+        <div class="section-title">Inventory List</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search products..." onkeyup="searchProducts(this.value)">
+        </div>
+        <div class="inventory-list">
+            <!-- Products will be displayed here based on products.html input -->
+        </div>
+    </div>
+
+    <script>
+        // Load products when page loads
+        window.addEventListener('load', function() {
+            loadInventory();
+            updateInventoryOverview();
+        });
+
+        function updateInventoryOverview() {
+            const products = JSON.parse(localStorage.getItem('products')) || [];
+            let totalProducts = 0;
+            let lowStockItems = 0;
+            let outOfStockItems = 0;
+            let totalValue = 0;
+
+            products.forEach(product => {
+                product.sizes.forEach(size => {
+                    totalProducts++;
+                    const quantity = parseInt(size.quantity);
+                    const price = parseFloat(size.price);
+                    
+                    if (quantity === 0) {
+                        outOfStockItems++;
+                    } else if (quantity <= 10) {
+                        lowStockItems++;
+                    }
+                    
+                    totalValue += quantity * price;
+                });
+            });
+
+            // Update the overview cards
+            document.querySelector('.inventory-card:nth-child(1) .value').textContent = totalProducts;
+            document.querySelector('.inventory-card:nth-child(2) .value').textContent = lowStockItems;
+            document.querySelector('.inventory-card:nth-child(3) .value').textContent = outOfStockItems;
+            document.querySelector('.inventory-card:nth-child(4) .value').textContent = `₱${totalValue.toLocaleString()}`;
+        }
+
+        function loadInventory() {
+            const products = JSON.parse(localStorage.getItem('products')) || [];
+            const inventoryList = document.querySelector('.inventory-list');
+            
+            // Keep existing products in the list
+            const existingProducts = Array.from(inventoryList.querySelectorAll('.inventory-item'));
+            if (existingProducts.length > 0) {
+                return; // Don't reload if products already exist
+            }
+
+            // Add each product to the inventory
+            products.forEach(product => {
+                const inventoryItem = document.createElement('div');
+                inventoryItem.className = 'inventory-item';
+                
+                const sizeInfo = product.sizes.map(s => {
+                    const quantity = parseInt(s.quantity);
+                    let stockStatus = '';
+                    if (quantity === 0) {
+                        stockStatus = 'status-out';
+                    } else if (quantity <= 10) {
+                        stockStatus = 'status-low';
+                    } else {
+                        stockStatus = 'status-ok';
+                    }
+
+                    return `
+                        <div class="variant-row">
+                            <span class="variant-size">${s.size}</span>
+                            <span class="variant-price">₱${s.price}</span>
+                            <span class="variant-quantity">Quantity: ${s.quantity}</span>
+                            <span class="stock-status ${stockStatus}">${quantity === 0 ? 'Out of Stock' : quantity <= 10 ? 'Low Stock' : 'In Stock'}</span>
+                        </div>
+                    `;
+                }).join('');
+
+                inventoryItem.innerHTML = `
+                    <div class="product-info">
+                        <img src="${product.image}" alt="${product.name}" class="product-image">
+                        <div class="variant-info">
+                            <h3>${product.name}</h3>
+                            ${sizeInfo}
+                        </div>
+                    </div>
+                `;
+                
+                inventoryList.appendChild(inventoryItem);
+            });
+        }
+
+        function searchProducts(query) {
+            const inventoryItems = document.querySelectorAll('.inventory-item');
+            query = query.toLowerCase();
+            
+            inventoryItems.forEach(item => {
+                const name = item.querySelector('h3').textContent.toLowerCase();
+                const variants = item.querySelectorAll('.variant-row');
+                let found = false;
+                
+                variants.forEach(variant => {
+                    const text = variant.textContent.toLowerCase();
+                    if (text.includes(query)) {
+                        found = true;
+                    }
+                });
+                
+                if (name.includes(query) || found) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function signOut() {
+            if(confirm('Are you sure you want to sign out?')) {
+                window.location.href = 'user.html';
+            }
+        }
+    </script>
+</body>
+</html> 

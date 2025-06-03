@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Products Management - Jellyscent Admin</title>
+<link rel="stylesheet" href="dashboard.css" />
+<link rel="stylesheet" href="products.css" />
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Playfair+Display:400,500,600,700&family=Poppins:300,400,500&display=swap"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+/>
+<style>
+  /* Just some small tweaks */
+  
+</style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo"><i class="fa fa-bag-shopping"></i> Jellyscent</div>
+    <ul>
+      <li><a href="dashboard.html"><i class="fa fa-chart-line"></i> Dashboard</a></li>
+      
+      <li class="active"><a href="products.html"><i class="fa fa-box"></i> Products</a></li>
+      <li><a href="orders.html"><i class="fa fa-shopping-cart"></i> Orders</a></li>
+      
+      <li><a href="inventory.html"><i class="fa fa-warehouse"></i> Inventory</a></li>
+      
+    </ul>
+  </div>
+  <div class="header">
+    <div class="title">Products Management</div>
+    <div class="user-area">
+      <div class="profile-dropdown">
+        <img
+          src="https://i.pravatar.cc/100?img=3"
+          alt="Admin"
+          class="profile-img"
+        />
+        <span>Admin</span>
+        <div class="dropdown-content">
+          <a href="#" onclick="signOut()">Sign Out</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="section-title">Add New Product</div>
+    <div class="product-form">
+      <form id="addProductForm" action="../php/products.php" method="POST" enctype="multipart/form-data">
+        <input
+          type="text"
+          name="name"
+          placeholder="Product Name"
+          required
+          style="width: 100%; padding: 8px; margin: 8px 0; border: 1px solid #ddd; border-radius: 4px;"
+        />
+
+        <div style="margin: 8px 0;">
+          <label style="font-weight: 600;">Select Sizes:</label><br />
+          <label style="margin-right: 15px;">
+            <input type="checkbox" name="sizes[]" value="50ml" /> 50ml
+          </label>
+          <label style="margin-right: 15px;">
+            <input type="checkbox" name="sizes[]" value="100ml" /> 100ml
+          </label>
+          <label style="margin-right: 15px;">
+            <input type="checkbox" name="sizes[]" value="150ml" /> 150ml
+          </label>
+        </div>
+
+        <div id="sizesDetailsContainer"></div>
+
+        <textarea
+          name="description"
+          placeholder="Product Description"
+          required
+          style="width: 100%; padding: 8px; margin: 8px 0; border: 1px solid #ddd; border-radius: 4px; resize: vertical;"
+          rows="4"
+        ></textarea>
+
+        <input
+          type="file"
+          name="image"
+          accept="image/*"
+          required
+          style="margin: 8px 0;"
+        />
+
+        <button type="submit" class="btn btn-primary">Add Product</button>
+      </form>
+    </div>
+
+  <div class="section-title">Product List</div>
+    <div class="product-list">
+      <div class="product-actions">
+        <label><input type="checkbox" id="selectAll" onchange="toggleSelectAll()" /> Select All</label>
+        <button class="btn btn-danger" onclick="deleteSelected()" style="display: none;" id="deleteSelectedBtn">Delete Selected</button>
+      </div>
+
+      <!-- Product list will be dynamically inserted here -->
+      <div id="productListContainer"></div>
+      </div>
+    </div>
+  </div>
+  <script src="products.js"></script>
+  </body>
+  </html>
