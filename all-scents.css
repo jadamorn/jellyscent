@@ -1,0 +1,126 @@
+/* All Scents Section */
+.best-selling {
+    padding: 60px 5%;
+    background-color: #FDF5F1;
+    width: 100%;
+}
+
+.best-selling h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #8A5D5D;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
+
+/* Product list layout */
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px;
+}
+
+.product-card {
+  width: 250px;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+
+.product-image {
+  height: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.product-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+
+/* Grid layout for product cards */
+.products-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+
+/* Product Details */
+.product-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: #8A5D5D;
+    margin: 0.5rem 0;
+    text-align: center;
+    width: 100%;
+}
+
+.product-price {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: #333;
+    font-weight: 600;
+    margin-top: auto;
+}
+
+.product-price::before {
+    content: "₱";
+}
+
+/* Error Message */
+.error-message,
+.no-products {
+    text-align: center;
+    grid-column: 1 / -1;
+    padding: 1rem;
+    margin: 1rem auto;
+    max-width: 600px;
+    border-radius: 4px;
+}
+
+.error-message {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+
+.no-products {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* Media Queries */
+@media (max-width: 992px) {
+    .product-list {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .product-list {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .product-image {
+        height: 150px; /* slightly smaller on mobile */
+    }
+
+    .best-selling h2 {
+        font-size: 2rem;
+    }
+}

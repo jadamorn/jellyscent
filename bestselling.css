@@ -1,0 +1,134 @@
+/* Best Selling Section */
+.best-selling {
+    padding: 60px 5%;
+    background-color: #FDF5F1;
+    width: 100%;
+}
+
+.best-selling h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #8A5D5D;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
+
+/* Product Grid Container */
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates 3 equal columns */
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Product Card */
+.product-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    height: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Product Image Container */
+.product-image {
+    width: 100%;
+    height: 250px;
+    margin-bottom: 1rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+}
+
+/* Product Image */
+.product-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* Product Details */
+.product-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: #8A5D5D;
+    margin: 0.5rem 0;
+    text-align: center;
+    width: 100%;
+}
+
+.product-price {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 600;
+    margin-top: auto;
+}
+
+.product-price::before {
+    content: "₱";
+}
+
+/* Error Message */
+.error-message {
+    text-align: center;
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 1rem auto;
+    max-width: 600px;
+    grid-column: 1 / -1; /* Spans all columns */
+}
+
+/* No Products Message */
+.no-products {
+    text-align: center;
+    color: #666;
+    padding: 2rem;
+    font-size: 1.1rem;
+    grid-column: 1 / -1; /* Spans all columns */
+}
+
+/* Media Queries */
+@media (max-width: 992px) {
+    .product-list {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .product-list {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .product-image {
+        height: 200px;
+    }
+    
+    .best-selling h2 {
+        font-size: 2rem;
+    }
+}

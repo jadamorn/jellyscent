@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JELLYSCENT - Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar - Reused from index.html -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="logo">
+                <img src="images/logo.png" alt="JELLYSCENT logo showing a perfume bottle icon">
+            </div>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="all-scents.html" class="active">All Scents</a></li>
+                <li><a href="bestselling.html">Best Selling</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+        <div class="user-icon">
+            <a href="login.html">
+                <i class="fas fa-user"></i>
+            </a>
+        </div>
+        <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Login Section -->
+    <section class="login-section">
+        <div class="login-container">
+            <h1>Login</h1>
+            <form id="loginForm" class="login-form" method="POST" action="php/login.php">
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
+                <div class="form-links">
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
+                <button type="submit" class="signin-btn">Sign In</button>
+                <div class="create-account">
+                    <a href="register.html">Create Account</a>
+                </div>
+                <div id="error-message" class="error-message"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer - Reused from index.html -->
+   <footer>
+        <div class="footer-content">
+            <div id="about-us" class="about-section">
+            <div id="about-us" class="about-section">
+                <p>At Fleuryscent, we blend Radiant Blooms with Captivating Scents to create perfumes that feel luxurious yet remain affordable. Inspired by nature's beauty, our fragrances bring elegance to your everyday.</p>
+            </div>
+            <div class="info-section">
+                <h3>Info</h3>
+                <ul>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Terms and Condition</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="subscribe">
+                <p>Subscribe to our emails</p>
+                <div class="email-input">
+                    <input type="email" placeholder="Email">
+                </div>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.menu').classList.toggle('active');
+        });
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            
+            fetch('php/login.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Redirect based on role
+                    if (data.role === 'admin') {
+                        window.location.href = 'admin/dashboard.html';
+                    } else {
+                        window.location.href = 'buyer/profile-user.html';
+                    }
+                } else {
+                    const errorMessage = document.getElementById('error-message');
+                    errorMessage.textContent = data.message || 'Login failed';
+                    errorMessage.style.display = 'block';
+                }
+            })
+            .catch(error => {
+                console.error('Login error:', error);
+                const errorMessage = document.getElementById('error-message');
+                errorMessage.textContent = 'An error occurred during login';
+                errorMessage.style.display = 'block';
+            });
+        });
+
+        async function loadProfileCart() {
+            const container = document.getElementById('profile-cart-items');
+            if (!container) return;
+
+            container.innerHTML = '<p>Loading cart...</p>';
+
+            try {
+                const response = await fetch('../php/cart.php?action=get');
+                const items = await response.json();
+
+                if (!Array.isArray(items) || items.length === 0) {
+                    container.innerHTML = '<p>Your cart is empty.</p>';
+                    return;
+                }
+
+                let html = '<ul class="profile-cart-list">';
+                items.forEach(item => {
+                    html += `
+                        <li>
+                            <strong>${item.product_name}</strong>
+                            <span>(${item.size})</span>
+                            <span>Qty: ${item.quantity}</span>
+                            <span>₱${parseFloat(item.total_price).toFixed(2)}</span>
+                            <button onclick="removeCartItem(${item.id})">Remove</button>
+                        </li>
+                    `;
+                });
+                html += '</ul>';
+                container.innerHTML = html;
+
+                window.removeCartItem = async function(id) {
+                    if (!confirm('Remove this item?')) return;
+                    await fetch('../php/cart.php?action=delete', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                        body: `id=${id}`
+                    });
+                    loadProfileCart();
+                }
+            } catch (error) {
+                container.innerHTML = '<p>Failed to load cart items.</p>';
+                console.error(error);
+            }
+        }
+
+        // Call this when the page loads
+        document.addEventListener('DOMContentLoaded', loadProfileCart);
+    </script>
+</body>
+</html>

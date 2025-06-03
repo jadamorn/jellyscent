@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fleuryscent - Create Account</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="logo">
+                <img src="images/logo.png" alt="Fleuryscent logo showing a perfume bottle icon">
+            </div>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="all-scents.html">All Scents</a></li>
+                <li><a href="best-selling.html">Best Selling</a></li>
+                <li><a href="about-us">About</a></li>
+                <li><a href="buyer/order1.html">Order</a></li>
+                <li><a href="buyer/cart1.html">Cart</a></li>
+            </ul>
+        </div>
+        <div class="user-icon">
+            <a href="login.html"><i class="fas fa-user"></i></a>
+        </div>
+        <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+    </nav>
+
+    <!-- Create Account Section -->
+    <section class="create-account-section">
+        <div class="create-account-container">
+            <h2 class="create-account-heading">Create an account</h2>
+            <form class="create-account-form" action="php/register.php" method="POST">
+    <div class="form-group">
+        <input type="text" id="first_name" name="first_name" placeholder="First name" required>
+    </div>
+    <div class="form-group">
+        <input type="text" id="last_name" name="last_name" placeholder="Last name" required>
+    </div>
+    <div class="form-group">
+        <input type="email" id="email" name="email" placeholder="Email" required>
+    </div>
+    <div class="form-group">
+        <input type="text" id="username" name="username" placeholder="Username" required>
+    </div>
+    <div class="form-group">                   
+        <input type="password" id="password" name="password" placeholder="Password" required>
+    </div>
+    <div class="form-group">
+        <input type="text" id="address" name="address" placeholder="Address" required>
+    </div>
+    <div class="form-group">
+        <input type="text" id="brgy" name="barangay" placeholder="Barangay" required>
+    </div>
+    <div class="form-group">
+        <input type="text" id="city" name="city" placeholder="City" required>
+    </div>
+    <div class="form-group">
+        <input type="text" id="province" name="province" placeholder="Province" required>
+    </div>
+    <div class="form-group">
+        <input type="text" id="region" name="region" placeholder="Region" required>
+    </div>
+    <div class="form-group">
+        <input type="text" id="zip" name="zip" placeholder="Zip Code" required>
+    </div>
+    <div class="form-group">
+        <input type="text" id="phone" name="phone_number" placeholder="Phone number" required>
+    </div>
+
+    <!-- Gender dropdown -->
+    <div class="form-group">
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender" required>
+            <option value="" disabled selected>Select your gender</option>
+            <option value="MALE">Male</option>
+            <option value="FEMALE">Female</option>
+            <option value="OTHER">Other</option>
+        </select>
+    </div>
+
+    <!-- Birthday dropdowns -->
+    <!-- Birthday dropdowns -->
+<div class="form-group">
+    <label>Birthday</label>
+    <div style="display: flex; gap: 10px;">
+        <select id="birth_year" name="birth_year" required>
+            <option value="" disabled selected>Year</option>
+        </select>
+
+        <select id="birth_month" name="birth_month" required>
+            <option value="" disabled selected>Month</option>
+            <option value="1">Jan</option>
+            <option value="2">Feb</option>
+            <option value="3">Mar</option>
+            <option value="4">Apr</option>
+            <option value="5">May</option>
+            <option value="6">Jun</option>
+            <option value="7">Jul</option>
+            <option value="8">Aug</option>
+            <option value="9">Sep</option>
+            <option value="10">Oct</option>
+            <option value="11">Nov</option>
+            <option value="12">Dec</option>
+        </select>
+
+        <select id="birth_date" name="birth_date" required>
+            <option value="" disabled selected>Day</option>
+        </select>
+    </div>
+</div>
+
+
+    <button type="submit" class="create-btn">Create</button>
+</form>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="about-section">
+                <h3>About us</h3>
+                <p>At Fleuryscent, we blend Radiant Blooms with Captivating Scents to create perfumes that feel luxurious yet remain affordable. Inspired by nature's beauty, our fragrances bring elegance to your everyday.</p>
+            </div>
+            <div class="info-section">
+                <h3>Info</h3>
+                <ul>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Terms and Condition</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="subscribe">
+                <p>Subscribe to our emails</p>
+                <div class="email-input">
+                    <input type="email" placeholder="Email">
+                </div>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.menu').classList.toggle('active');
+        });
+
+
+
+        const yearSelect = document.getElementById('birth_year');
+    const monthSelect = document.getElementById('birth_month');
+    const daySelect = document.getElementById('birth_date');
+
+    // Populate year options
+    const currentYear = new Date().getFullYear();
+    for (let y = currentYear; y >= 1900; y--) {
+        const option = document.createElement('option');
+        option.value = y;
+        option.textContent = y;
+        yearSelect.appendChild(option);
+    }
+
+    // Function to determine number of days in a given month/year
+    function getDaysInMonth(month, year) {
+        return new Date(year, month, 0).getDate();
+    }
+
+    function populateDays() {
+        const year = parseInt(yearSelect.value);
+        const month = parseInt(monthSelect.value);
+
+        if (!year || !month) return;
+
+        const daysInMonth = getDaysInMonth(month, year);
+        daySelect.innerHTML = '<option value="" disabled selected>Day</option>';
+
+        for (let d = 1; d <= daysInMonth; d++) {
+            const option = document.createElement('option');
+            option.value = d;
+            option.textContent = d;
+            daySelect.appendChild(option);
+        }
+    }
+
+    // Add event listeners
+    yearSelect.addEventListener('change', populateDays);
+    monthSelect.addEventListener('change', populateDays);
+    </script>
+</body>
+</html>

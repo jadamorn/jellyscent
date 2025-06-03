@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JELLYSCENT - Best Selling</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=1" />
+    <link rel="stylesheet" href="bestselling.css?v=1" />
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="JELLYSCENT logo showing a perfume bottle icon" />
+                </a>
+            </div>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="all-scents.html">All Scents</a></li>
+                <li><a href="bestselling.html" class="active">Best Selling</a></li>
+                <li><a href="about.html">About</a></li>
+                
+            </ul>
+        </div>
+        <div class="user-icon">
+            <a href="#" id="userLink" onclick="handleUserAction(); return false;">
+                <i class="fas fa-user"></i>
+            </a>
+        </div>
+        <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Best Selling Section -->
+        <section class="best-selling">
+            <h2>BEST SELLING</h2>
+            <div class="product-list">
+                <!-- Products will be loaded here via JS -->
+            </div>
+        </section>
+
+
+      
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">    
+            <div class="about-section">
+                <h3>About us</h3>
+                <p>
+                    At Jellyscent, we blend Radiant Blooms with Captivating Scents to create perfumes that feel luxurious yet remain affordable. Inspired by nature's beauty, our fragrances bring elegance to your everyday.
+                </p>
+            </div>
+            <div class="info-section">
+                <h3>Info</h3>
+                <ul>
+                    <li><a href="info.html#faqs">FAQs</a></li>
+                    <li><a href="info.html#about">About Us</a></li>
+                    <li><a href="info.html#contact">Contact Us</a></li>
+                    <li><a href="info.html#terms">Terms and Condition</a></li>
+                    <li><a href="info.html#service">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="subscribe">
+                <p>Subscribe to our emails</p>
+                <div class="email-input">
+                    <input type="email" id="subscribe-email" name="subscribe-email" placeholder="Email" aria-label="Subscribe to our emails" />
+                </div>
+            </div>
+            <div class="social-icons">
+                <a href="buyer/profile-user.html"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Detail Popup -->
+    <div class="product-popup-overlay">
+        <div class="product-popup">
+            <button class="close-popup" aria-label="Close popup">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="popup-content">
+                <div class="popup-image">
+                    <img src="uploads/" alt="Perfume product image" />
+                </div>
+                <div class="popup-details">
+                    <h2 class="popup-product-name">Palazzo Nobile Blooming</h2>
+                    <p class="popup-product-price">599.99</p>
+                    <p class="popup-product-description">
+                        Jellyscent crafts fragrances that evoke serenity and tranquility. Our scents aim to transport you to haven of peace, promoting relaxation and well-being.
+                    </p>
+
+                    <div class="popup-options">
+                        <div class="size-selector">
+                            <label for="product-size">Size</label>
+                            <select id="product-size">
+                                <option value="50ml" data-price="199" selected>50ml</option>
+                                <option value="100ml" data-price="299">100ml</option>
+                                <option value="150ml" data-price="399">150ml</option>
+                            </select>
+                        </div>
+
+                        <div class="quantity-selector">
+                            <label for="product-quantity">Quantity</label>
+                            <div class="quantity-control">
+                                <button class="quantity-decrease" aria-label="Decrease quantity">-</button>
+                                <input type="number" id="product-quantity" name="product-quantity" value="1" min="1" max="10" />
+                                <button class="quantity-increase" aria-label="Increase quantity">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="popup-buttons">
+                        <button id="add-to-cart-btn" class="add-to-cart-btn">Add to Cart</button>
+                        <button id="buy-now-btn" class="buy-now-btn">Buy Now</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="bestselling.js" ></script>
+</body>
+</html>

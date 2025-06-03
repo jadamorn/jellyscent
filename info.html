@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info - JellyScent</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #F8F4F1 0%, #F6C1A9 100%);
+            font-family: 'Poppins', sans-serif;
+            color: #8A5D5D;
+            margin: 0;
+        }
+        .info-nav {
+            position: sticky;
+            top: 0;
+            background: #fff;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(192,128,129,0.07);
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 18px 0;
+        }
+        .info-nav a {
+            color: #C08081;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            text-decoration: none;
+            padding: 8px 18px;
+            border-radius: 6px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .info-nav a:hover, .info-nav a.active {
+            background: #F6C1A9;
+            color: #fff;
+        }
+        .info-section {
+            width: 100%;
+            margin: 0 auto 48px auto;
+            background: rgba(255,255,255,0.97);
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(192,128,129,0.10), 0 1.5px 4px rgba(138, 93, 93, 0.04);
+            padding: 48px 6vw 40px 6vw;
+            border: 1.5px solid #f0d3c2;
+            position: relative;
+            transition: box-shadow 0.3s;
+        }
+        .info-section:not(:last-child)::after {
+            content: '';
+            display: block;
+            height: 36px;
+            width: 100%;
+            background: transparent;
+        }
+        .info-section h2 {
+            font-family: 'Playfair Display', serif;
+            color: #C08081;
+            font-size: 2.2rem;
+            margin-bottom: 22px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-align: left;
+            border-left: 6px solid #F6C1A9;
+            padding-left: 18px;
+        }
+        .info-section p, .info-section ul {
+            font-size: 1.13rem;
+            color: #8A5D5D;
+            margin-bottom: 18px;
+            line-height: 1.7;
+        }
+        .info-section ul {
+            padding-left: 32px;
+            list-style-type: disc;
+        }
+        .info-section li {
+            margin-bottom: 10px;
+        }
+        @media (max-width: 900px) {
+            .info-section {
+                padding: 32px 3vw 28px 3vw;
+            }
+            .info-section h2 {
+                font-size: 1.4rem;
+                padding-left: 10px;
+            }
+        }
+        @media (max-width: 600px) {
+            .info-section {
+                padding: 18px 2vw 14px 2vw;
+                border-radius: 10px;
+            }
+            .info-section h2 {
+                font-size: 1.1rem;
+                padding-left: 6px;
+            }
+        }
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin: 28px 0 18px 32px;
+            padding: 10px 22px;
+            background: #F6C1A9;
+            color: #8A5D5D;
+            border: none;
+            border-radius: 24px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.08rem;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(192,128,129,0.07);
+            transition: background 0.2s, color 0.2s;
+        }
+        .back-btn:hover {
+            background: #D9A88C;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar - Copied from index.html -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="logo">
+                <img src="images/logo.png" alt="JELLYSCENT logo showing a perfume bottle icon">
+            </div>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="all-scents.html">All Scents</a></li>
+                <li><a href="best-selling.html">Best Selling</a></li>
+                <li><a href="about.html">About</a></li>
+               
+            </ul>
+        </div>
+        <div class="user-icon">
+            <a href="login.html">
+                <i class="fas fa-user"></i>
+            </a>
+        </div>
+        <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+    <main>
+        <section class="info-section" id="information">
+            <h2>Information</h2>
+            <p>Welcome to JellyScent, your trusted provider of premium fragrance products and sensory lifestyle solutions. We are dedicated to offering exceptional quality, full transparency, and a refined customer experience. This section serves as a gateway to essential information regarding our products, services, and customer support. Whether you're exploring our collections or placing an order, our resources are designed to assist you every step of the way.</p>
+        </section>
+        <section class="info-section" id="faqs">
+            <h2>Frequently Asked Questions (FAQs)</h2>
+            <ul>
+                <li>Detailed product information and safe usage instructions</li>
+                <li>Order fulfillment and estimated delivery timelines</li>
+                <li>Domestic and international shipping guidelines</li>
+                <li>Return, exchange, and refund policies</li>
+                <li>Payment methods and promotional offers</li>
+            </ul>
+            <p>If your specific question is not listed, we invite you to reach out to our customer support team for personalized assistance.</p>
+        </section>
+        <section class="info-section" id="about">
+            <h2>About Us</h2>
+            <p>JellyScent is a brand founded on the belief that scent can enhance emotional well-being and elevate daily living. We specialize in crafting premium scented products such as candles, diffusers, room sprays, and personal fragrance items using ethically sourced, cruelty-free ingredients. Each product is hand-crafted with care and precision, reflecting our dedication to both quality and sustainability.</p>
+            <ul>
+                <li><b>Craftsmanship:</b> We prioritize attention to detail, artistry, and ingredient purity.</li>
+                <li><b>Sustainability:</b> Our operations follow environmentally responsible and ethical practices.</li>
+                <li><b>Customer Commitment:</b> We listen to our customers and tailor our offerings to meet their needs and preferences.</li>
+            </ul>
+            <p>JellyScent aims to deliver a multisensory experience that brings calm, beauty, and inspiration into your life.</p>
+        </section>
+        <section class="info-section" id="contact">
+            <h2>Contact Us</h2>
+            <p>We welcome all inquiries and feedback. Our customer support team is here to assist you with any questions regarding products, orders, or general information. Please do not hesitate to contact us using the information below:</p>
+            <ul>
+                <li><b>Phone:</b> 0999 399 9999</li>
+                <li><b>Email:</b> support@jellyscent.com</li>
+                <li><b>Mailing Address:</b> JellyScent, Mendez 4121, Philippines</li>
+                <li><b>Customer Service Hours:</b> Monday to Friday, 9:00 AM – 6:00 PM (PHT)</li>
+                <li><b>Social Media:</b> Instagram, Facebook, Twitter</li>
+            </ul>
+            <p>We strive to respond to all inquiries within 24 to 48 business hours.</p>
+        </section>
+        <section class="info-section" id="terms">
+            <h2>Terms and Conditions</h2>
+            <ul>
+                <li>Proper and lawful use of our services</li>
+                <li>Intellectual property and proprietary rights</li>
+                <li>Order accuracy, payment terms, and pricing</li>
+                <li>Limitations of liability and indemnity</li>
+                <li>Third-party content and external links</li>
+            </ul>
+            <p>We recommend reviewing our Terms and Conditions regularly, as JellyScent reserves the right to update them without prior notice.</p>
+        </section>
+        <section class="info-section" id="service">
+            <h2>Terms of Service</h2>
+            <ul>
+                <li>Eligibility criteria for service access</li>
+                <li>Account management and user responsibilities</li>
+                <li>Privacy policies and data security practices</li>
+                <li>Payment and transaction processes</li>
+                <li>Product warranties, limitations, and legal rights</li>
+                <li>Applicable laws and jurisdictional governance</li>
+            </ul>
+            <p>By engaging with JellyScent, you acknowledge and accept these terms. A full version of our Terms of Service is available on our website for your reference.</p>
+        </section>
+    </main>
+    <script>
+        // Mobile menu toggle for navbar
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html> 

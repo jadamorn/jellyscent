@@ -1,0 +1,34 @@
+/* Style form-group consistently */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Style inputs and select fields */
+.form-group input,
+.form-group select {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Flex layout for birthday dropdowns */
+.form-group div select {
+    flex: 1;
+}
+
+/* Responsive spacing between birthday dropdowns */
+.form-group div {
+    display: flex;
+    gap: 10px;
+}

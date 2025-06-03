@@ -1,0 +1,23 @@
+# Ignore the database config file
+#config.php
+
+# Ignore environment or secret files
+.env
+
+# Ignore editor folders and files
+.vscode/
+.idea/
+
+# Ignore OS-generated files
+.DS_Store
+Thumbs.db
+
+# Ignore temporary files
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Ignore backup SQL or data dumps
+*.sql
+*.gz
